@@ -7,6 +7,12 @@ export default class Register extends Component {
     displayName: "",
     fileErrors: "",
   };
+
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
   render() {
     return (
       <>
@@ -15,19 +21,25 @@ export default class Register extends Component {
             type="text"
             className="regField"
             placeholder="Your Name"
-            name="name"
+            name="displayName"
+            value={this.state.displayName}
+            onChange={this.handleChange}
           />
           <input
             type="text"
             className="regField"
             placeholder="Your Email"
             name="email"
+            value={this.state.email}
+            onChange={this.handleChange}
           />
           <input
             type="password"
             className="regField"
             placeholder="Your Password"
             name="password"
+            value={this.state.password}
+            onChange={this.handleChange}
           />
           <input type="submit" className="submitBtn" value="REGISTER" />
         </form>
