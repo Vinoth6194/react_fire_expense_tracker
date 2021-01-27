@@ -1,12 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <h1>
-        Salary and Expense Tracker
-      </h1>
+      <h1>Salary and Expense Tracker</h1>
     </div>
   );
 }
