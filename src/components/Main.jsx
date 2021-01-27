@@ -4,6 +4,7 @@ import Register from "./Forms/Register";
 import fire from "../config/Fire";
 
 import "./Main.css";
+import Tracker from "./Tracker/Tracker";
 
 export default class Main extends Component {
   state = {
@@ -71,7 +72,7 @@ export default class Main extends Component {
             {/* <Register /> */}
           </div>
         ) : (
-          "Your are logged in"
+          <Tracker />
         )}
       </>
     );
