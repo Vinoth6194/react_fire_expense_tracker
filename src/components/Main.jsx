@@ -35,40 +35,44 @@ export default class Main extends Component {
     const form = !this.state.formSwitcher ? <Login /> : <Register />;
     return (
       <>
-        <div className="mainBlock">
-          {form}
-          {!this.state.formSwitcher ? (
-            <span className="underLine">
-              Not Registered?{" "}
-              <button
-                onClick={() =>
-                  this.formSwitcher(
-                    !this.state.formSwitcher ? "register" : "login"
-                  )
-                }
-                className="linkBtn"
-              >
-                Create an Account
-              </button>
-            </span>
-          ) : (
-            <span className="underLine">
-              Have an Account?{" "}
-              <button
-                onClick={() =>
-                  this.formSwitcher(
-                    !this.state.formSwitcher ? "register" : "login"
-                  )
-                }
-                className="linkBtn"
-              >
-                Sign In here
-              </button>
-            </span>
-          )}
+        {!this.state.user ? (
+          <div className="mainBlock">
+            {form}
+            {!this.state.formSwitcher ? (
+              <span className="underLine">
+                Not Registered?{" "}
+                <button
+                  onClick={() =>
+                    this.formSwitcher(
+                      !this.state.formSwitcher ? "register" : "login"
+                    )
+                  }
+                  className="linkBtn"
+                >
+                  Create an Account
+                </button>
+              </span>
+            ) : (
+              <span className="underLine">
+                Have an Account?{" "}
+                <button
+                  onClick={() =>
+                    this.formSwitcher(
+                      !this.state.formSwitcher ? "register" : "login"
+                    )
+                  }
+                  className="linkBtn"
+                >
+                  Sign In here
+                </button>
+              </span>
+            )}
 
-          {/* <Register /> */}
-        </div>
+            {/* <Register /> */}
+          </div>
+        ) : (
+          "Your are logged in"
+        )}
       </>
     );
   }
