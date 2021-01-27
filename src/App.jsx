@@ -1,11 +1,8 @@
 import "./App.css";
+import Main from "./components/Main";
 
 function App() {
-  return (
-    <div className="App">
-      <h1>Salary and Expense Tracker</h1>
-    </div>
-  );
+  return <Main />;
 }
 
 export default App;
