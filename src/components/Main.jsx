@@ -12,6 +12,9 @@ export default class Main extends Component {
   };
 
   formSwitcher = (action) => {
+    this.setState({
+      formSwitcher: action === "register" ? true : false,
+    });
     console.log(action);
   };
   render() {
@@ -22,8 +25,12 @@ export default class Main extends Component {
           <span className="underLine">
             Not Registered?{" "}
             <button
+              onClick={() =>
+                this.formSwitcher(
+                  !this.state.formSwitcher ? "register" : "login"
+                )
+              }
               className="linkBtn"
-              onClick={() => this.formSwitcher("register")}
             >
               Create an Account
             </button>
