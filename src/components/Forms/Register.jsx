@@ -29,7 +29,7 @@ export default class Register extends Component {
             placeholder="Your Password"
             name="password"
           />
-          <input type="submit" className="submitBtn" value="ENTER" />
+          <input type="submit" className="submitBtn" value="REGISTER" />
         </form>
       </>
     );
