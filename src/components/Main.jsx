@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Login from "./Forms/Login";
 import Register from "./Forms/Register";
+import fire from "../config/Fire";
 
 import "./Main.css";
 
@@ -17,6 +18,19 @@ export default class Main extends Component {
     });
     console.log(action);
   };
+  componentDidMount() {
+    this.authListener();
+  }
+
+  authListener() {
+    fire.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({ user });
+      } else {
+        this.setState({ user: null });
+      }
+    });
+  }
   render() {
     const form = !this.state.formSwitcher ? <Login /> : <Register />;
     return (

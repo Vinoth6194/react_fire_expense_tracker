@@ -31,7 +31,19 @@ export default class Register extends Component {
         this.setState({ fireErrors: error.message });
       });
   };
+  componentDidMount() {
+    this.authListener();
+  }
 
+  authListener() {
+    fire.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({ user });
+      } else {
+        this.setState({ user: null });
+      }
+    });
+  }
   render() {
     let errorNotification = this.state.fireErrors ? (
       <div className="error">{this.state.fireErrors}</div>
