@@ -18,10 +18,11 @@ export default class Main extends Component {
     console.log(action);
   };
   render() {
+    const form = !this.state.formSwitcher ? <Login /> : <Register />;
     return (
       <>
         <div className="mainBlock">
-          <Login />
+          {form}
           {!this.state.formSwitcher ? (
             <span className="underLine">
               Not Registered?{" "}
