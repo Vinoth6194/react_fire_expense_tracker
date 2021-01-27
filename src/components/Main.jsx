@@ -22,19 +22,36 @@ export default class Main extends Component {
       <>
         <div className="mainBlock">
           <Login />
-          <span className="underLine">
-            Not Registered?{" "}
-            <button
-              onClick={() =>
-                this.formSwitcher(
-                  !this.state.formSwitcher ? "register" : "login"
-                )
-              }
-              className="linkBtn"
-            >
-              Create an Account
-            </button>
-          </span>
+          {!this.state.formSwitcher ? (
+            <span className="underLine">
+              Not Registered?{" "}
+              <button
+                onClick={() =>
+                  this.formSwitcher(
+                    !this.state.formSwitcher ? "register" : "login"
+                  )
+                }
+                className="linkBtn"
+              >
+                Create an Account
+              </button>
+            </span>
+          ) : (
+            <span className="underLine">
+              Have an Account?{" "}
+              <button
+                onClick={() =>
+                  this.formSwitcher(
+                    !this.state.formSwitcher ? "register" : "login"
+                  )
+                }
+                className="linkBtn"
+              >
+                Sign In here
+              </button>
+            </span>
+          )}
+
           {/* <Register /> */}
         </div>
       </>
