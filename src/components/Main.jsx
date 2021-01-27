@@ -8,6 +8,11 @@ export default class Main extends Component {
   state = {
     user: 1,
     loading: true,
+    formSwitcher: false,
+  };
+
+  formSwitcher = (action) => {
+    console.log(action);
   };
   render() {
     return (
@@ -16,9 +21,14 @@ export default class Main extends Component {
           <Login />
           <span className="underLine">
             Not Registered?{" "}
-            <button className="linkBtn">Create an Account</button>
+            <button
+              className="linkBtn"
+              onClick={() => this.formSwitcher("register")}
+            >
+              Create an Account
+            </button>
           </span>
-          <Register />
+          {/* <Register /> */}
         </div>
       </>
     );
