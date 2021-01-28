@@ -48,7 +48,7 @@ export default class Tracker extends Component {
         .database()
         .ref("Transactions/" + currentUID)
         .push({
-          id: BackUpState.length,
+          id: BackUpState.length + 1,
           name: transactionName,
           type: transactionType,
           price: price,
@@ -66,6 +66,9 @@ export default class Tracker extends Component {
             transactionType: "",
             price: "",
           });
+        })
+        .catch((error) => {
+          console.log(error);
         });
     }
   };
