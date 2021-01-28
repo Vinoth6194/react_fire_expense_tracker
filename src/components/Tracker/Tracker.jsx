@@ -83,7 +83,10 @@ export default class Tracker extends Component {
       .database()
       .ref("Transactions/" + currentUID)
       .once("value", (snapshot) => {
-        console.log(snapshot);
+        // console.log(snapshot);
+        snapshot.forEach((childSnapshot) => {
+          console.log(childSnapshot.val());
+        });
       });
   }
 
