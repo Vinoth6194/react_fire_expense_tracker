@@ -83,7 +83,7 @@ export default class Tracker extends Component {
               Exit
             </button>
           </div>
-          <div className="totalMoney">$145</div>
+          <div className="totalMoney">{this.state.money}</div>
           <div className="newTransactionBlock">
             <div className="newTransaction">
               <form>
