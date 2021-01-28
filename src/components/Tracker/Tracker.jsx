@@ -74,6 +74,19 @@ export default class Tracker extends Component {
         });
     }
   };
+
+  componentWillMount() {
+    const { currentUID, money } = this.state;
+    let totalMoney = money;
+    const BackUpState = this.state.transactions;
+    fire
+      .database()
+      .ref("Transactions/" + currentUID)
+      .once("value", (snapshot) => {
+        console.log(snapshot);
+      });
+  }
+
   render() {
     const currentUser = fire.auth().currentUser;
     return (
