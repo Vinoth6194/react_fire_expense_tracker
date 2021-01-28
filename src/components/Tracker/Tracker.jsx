@@ -44,6 +44,19 @@ export default class Tracker extends Component {
         user_id: currentUID,
       });
       console.log(BackUpState);
+      fire
+        .database()
+        .ref("Transactions/" + currentUID)
+        .push({
+          id: BackUpState.length,
+          name: transactionName,
+          type: transactionType,
+          price: price,
+          user_id: currentUID,
+        })
+        .then((data) => {
+          console.log("success callback");
+        });
     }
   };
   render() {
