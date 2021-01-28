@@ -15,11 +15,12 @@ export default class Tracker extends Component {
     fire.auth().signOut();
   };
   render() {
+    const currentUser = fire.auth().currentUser;
     return (
       <>
         <div className="trackerBlock">
           <div className="welcome">
-            <span>Hi, Username!</span>
+            <span>Hi, {currentUser.displayName}!</span>
             <button className="exit" onClick={this.logout}>
               Exit
             </button>
