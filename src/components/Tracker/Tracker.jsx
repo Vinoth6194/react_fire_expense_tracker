@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import fire from "../../config/Fire";
 import "./Tracker.css";
+import "./Transactions/Transactions";
+import Transactions from "./Transactions/Transactions";
 export default class Tracker extends Component {
   state = {
     transactions: [],
@@ -124,10 +126,14 @@ export default class Tracker extends Component {
           <div className="latestTransactions">
             <p>Latest Transactions</p>
             <ul>
-              <li>
-                <div>ATM Deposit</div>
-                <div>+$5</div>
-              </li>
+              {Object.keys(this.state.transactions).map((id) => (
+                <Transactions
+                  key={id}
+                  type={this.state.transactions[id].type}
+                  name={this.state.transactions[id].name}
+                  price={this.state.transactions[id].price}
+                />
+              ))}
             </ul>
           </div>
         </div>
