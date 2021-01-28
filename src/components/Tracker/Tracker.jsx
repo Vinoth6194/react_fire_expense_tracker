@@ -11,6 +11,14 @@ export default class Tracker extends Component {
     price: "",
     currentUID: fire.auth().currentUser.uid,
   };
+
+  handleChange = (input) => (e) => {
+    this.setState({
+      // [e.target.name]: e.target.value !== "0" ? e.target.value : "",
+      [input]: e.target.value !== "0" ? e.target.value : "",
+    });
+  };
+
   logout = () => {
     fire.auth().signOut();
   };
@@ -33,14 +41,26 @@ export default class Tracker extends Component {
                   type="text"
                   placeholder="Transaction Name"
                   name="transactionName"
+                  value={this.state.transactionName}
+                  onChange={this.handleChange("transactionName")}
                 />
                 <div className="inputGroup">
-                  <select name="type">
+                  <select
+                    name="type"
+                    value={this.state.transactionType}
+                    onChange={this.handleChange("transactionType")}
+                  >
                     <option value="0">Type</option>
                     <option value="expense">Expense</option>
                     <option value="deposit">Deposit</option>
                   </select>
-                  <input type="text" placeholder="Price" name="price" />
+                  <input
+                    type="text"
+                    placeholder="Price"
+                    name="price"
+                    value={this.state.price}
+                    onChange={this.handleChange("price")}
+                  />
                 </div>
                 <button className="addTransaction">+ Add Transaction</button>
               </form>
