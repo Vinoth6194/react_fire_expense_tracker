@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import Login from "./Forms/Login";
 import Register from "./Forms/Register";
 import fire from "../config/Fire";
-
-import "./Main.css";
 import Tracker from "./Tracker/Tracker";
+import Spinner from "../assets/loader.gif";
+import "./Main.css";
 
 export default class Main extends Component {
   state = {
@@ -34,6 +34,16 @@ export default class Main extends Component {
   }
   render() {
     const form = !this.state.formSwitcher ? <Login /> : <Register />;
+    if (this.state.user === 1) {
+      return (
+        <div className="mainBlock">
+          <div className="Spinner">
+            <img src={Spinner} alt="spinner" className="imgSpinner"></img>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <>
         {!this.state.user ? (

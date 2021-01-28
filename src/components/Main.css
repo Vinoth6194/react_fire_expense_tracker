@@ -34,3 +34,11 @@
   margin-bottom: 10px;
   border-radius: 3px;
 }
+
+.Spinner {
+  display: table;
+  margin: 0 auto;
+}
+.Spinner > .imgSpinner {
+  max-width: 30px;
+}
