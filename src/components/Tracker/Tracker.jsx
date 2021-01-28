@@ -90,16 +90,16 @@ export default class Tracker extends Component {
             childSnapshot.val().type === "deposit"
               ? parseFloat(childSnapshot.val().price) + totalMoney
               : totalMoney - parseFloat(childSnapshot.val().price);
-          // BackUpState.push({
-          //   id: childSnapshot.val().id,
-          //   name: childSnapshot.val().name,
-          //   type: childSnapshot.val().type,
-          //   price: childSnapshot.val().price,
-          //   user_id: childSnapshot.val().user_id,
-          // });
+          BackUpState.push({
+            id: childSnapshot.val().id,
+            name: childSnapshot.val().name,
+            type: childSnapshot.val().type,
+            price: childSnapshot.val().price,
+            user_id: childSnapshot.val().user_id,
+          });
         });
         this.setState({
-          // transactions: BackUpState,
+          transactions: BackUpState,
 
           money: totalMoney,
         });
