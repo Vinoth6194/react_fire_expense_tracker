@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import fire from "../../config/Fire";
-
+import "./Tracker.css";
 export default class Tracker extends Component {
   logout = () => {
     fire.auth().signOut();
