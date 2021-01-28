@@ -62,6 +62,9 @@ export default class Tracker extends Component {
               transactionType === "deposit"
                 ? money + parseFloat(price)
                 : money - parseFloat(price),
+            transactionName: "",
+            transactionType: "",
+            price: "",
           });
         });
     }
