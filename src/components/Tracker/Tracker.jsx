@@ -2,6 +2,15 @@ import React, { Component } from "react";
 import fire from "../../config/Fire";
 import "./Tracker.css";
 export default class Tracker extends Component {
+  state = {
+    transactions: [],
+    money: 0,
+
+    transactionName: "",
+    transactionType: "",
+    price: "",
+    currentUID: fire.auth().currentUser.uid,
+  };
   logout = () => {
     fire.auth().signOut();
   };
