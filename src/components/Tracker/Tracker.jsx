@@ -56,6 +56,13 @@ export default class Tracker extends Component {
         })
         .then((data) => {
           console.log("success callback");
+          this.setState({
+            transactions: BackUpState,
+            money:
+              transactionType === "deposit"
+                ? money + parseFloat(price)
+                : money - parseFloat(price),
+          });
         });
     }
   };
