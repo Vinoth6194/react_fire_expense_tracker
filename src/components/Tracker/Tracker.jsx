@@ -22,6 +22,30 @@ export default class Tracker extends Component {
   logout = () => {
     fire.auth().signOut();
   };
+
+  addNewTransaction = (e) => {
+    e.preventDefault();
+    console.log("Form submitted");
+    const {
+      transactionName,
+      transactionType,
+      price,
+      currentUID,
+      money,
+    } = this.state;
+
+    if (transactionName && transactionType && price) {
+      const BackUpState = this.state.transactions;
+      BackUpState.push({
+        id: BackUpState.length + 1,
+        name: transactionName,
+        type: transactionType,
+        price: price,
+        user_id: currentUID,
+      });
+      console.log(BackUpState);
+    }
+  };
   render() {
     const currentUser = fire.auth().currentUser;
     return (
@@ -62,7 +86,12 @@ export default class Tracker extends Component {
                     onChange={this.handleChange("price")}
                   />
                 </div>
-                <button className="addTransaction">+ Add Transaction</button>
+                <button
+                  className="addTransaction"
+                  onClick={this.addNewTransaction}
+                >
+                  + Add Transaction
+                </button>
               </form>
             </div>
           </div>
